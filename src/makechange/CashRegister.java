@@ -16,41 +16,69 @@ public class CashRegister {
 		int tenderCoins = ((int)(tender * 100));
 		
 		double changeDue = tender - price;
-//		System.out.println(changeDue);
+		if ( price > tender) {
+			System.err.println("Not enough money to purchase this. Please try again");
+		}
+		else {
+		System.out.println("Thank you! Your change is: " + changeDue + ". Which is: ");
+		}
 		int changeDueCoins = tenderCoins - priceCoins;
-//		System.out.println(changeDueCoins);
-//		System.out.println(coins);
+
 		
-		int pennies = changeDueCoins % 100;
-		int nickels = changeDueCoins / 5;
-		int dimes = changeDueCoins / 10;
-		int quarters = changeDueCoins / 25 ;
-		int oneDollars = changeDueCoins / 100;
-		int fiveDollars = changeDueCoins / 500;
-		int tenDollars = changeDueCoins / 1000;
+		int tenDollars = 1000;
+		int fiveDollars = 500;
+		int oneDollars =  100;
+		int quarters =  25 ;
+		int dimes =  10;
+		int nickels =  5;
+		int pennies = 1;
 		
-		if (pennies < 5 ) {
-			System.out.println(pennies + " Pennies");
-		}
-		
-		if (pennies >= 5) {
-			int newPennies = pennies % 5;
+		for (int i = 0 ; i < 1; i ++){
+			int tens = changeDueCoins / tenDollars;
+			int remainingChange = changeDueCoins - (tens * tenDollars);
 			
-			if ( 0 < newPennies && newPennies < 5 ) {
-				System.out.println(newPennies + " Pennies");
+			int fives = remainingChange / fiveDollars;
+			remainingChange = remainingChange - (fives * fiveDollars);
+			
+			int ones = remainingChange / oneDollars;
+			remainingChange = remainingChange -(ones * oneDollars);
+			
+			int quartersA = remainingChange / quarters;
+			remainingChange = remainingChange - (quartersA * quarters);
+			
+			int dimesA = remainingChange / dimes;
+			remainingChange = remainingChange -(dimesA * dimes);
+			
+			int nickelsA = remainingChange / nickels;
+			remainingChange = remainingChange - (nickelsA * nickels);
+			
+			int penniesA = remainingChange / pennies;
+			remainingChange = remainingChange -(penniesA * pennies);
+			
+			if (tens > 0) {
+				System.out.println( tens + " Tens " );
 			}
-			else {	
+			if (fives > 0) {
+				System.out.println( fives + " Fives  " );
 			}
+			if (ones > 0) {
+				System.out.println( ones + " Ones " );
+			}
+			if (quartersA > 0) {
+				System.out.println( quartersA + " Quarters ");
+			}
+			if (dimesA > 0) {
+				System.out.println( dimesA + " Dimes " );
+			}
+			if (nickelsA > 0) {
+				System.out.println( nickelsA + " Nickels " );
+			}
+			if (penniesA > 0) {
+				System.out.println( penniesA + " Pennies ");
+			}
+			
+			
 		}
-		
-		if (nickels < 2) {
-			System.out.println(nickels + " Nickel");
-		}
-		
-//		if (nickels >= 2) {
-//			int newNickels = 
-//		}
-		
 		
 		
 
@@ -62,3 +90,4 @@ public class CashRegister {
 	}
 
 }
+

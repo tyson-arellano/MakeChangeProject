@@ -17,7 +17,7 @@ public class CashRegister {
 		
 		double changeDue = tender - price;
 		if ( price > tender) {
-			System.err.println("Not enough money to purchase this. Please try again");
+			System.err.println("Not enough money to purchase this. Please give me more money.");
 		}
 		else {
 		System.out.println("Thank you! Your change is: " + changeDue + ". Which is: ");

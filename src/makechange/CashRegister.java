@@ -77,15 +77,7 @@ public class CashRegister {
 				System.out.println( penniesA + " Pennies ");
 			}
 			
-			
-		}
-		
-		
-
-		
-		
-		
-		
+		}	
 		sc.close();
 	}
 

@@ -19,12 +19,15 @@ public class CashRegister {
 		if ( price > tender) {
 			System.err.println("Not enough money to purchase this. Please give me more money.");
 		}
+		if ( price == tender) {
+			System.out.println("Thank you for your purchase! Have a great day!");
+		}
 		else {
-		System.out.println("Thank you! Your change is: " + changeDue + ". Which is: ");
+		System.out.println("Thank you! Your change is: $ " + changeDue + ". Which is: ");
 		}
 		int changeDueCoins = tenderCoins - priceCoins;
-
 		
+		int twentyDollars = 2000;
 		int tenDollars = 1000;
 		int fiveDollars = 500;
 		int oneDollars =  100;
@@ -32,10 +35,12 @@ public class CashRegister {
 		int dimes =  10;
 		int nickels =  5;
 		int pennies = 1;
+			
+			int twenties = changeDueCoins / twentyDollars;
+			int remainingChange = changeDueCoins - (twenties * twentyDollars);
 		
-		for (int i = 0 ; i < 1; i ++){
-			int tens = changeDueCoins / tenDollars;
-			int remainingChange = changeDueCoins - (tens * tenDollars);
+			int tens = remainingChange / tenDollars;
+			remainingChange = remainingChange - (tens * tenDollars);
 			
 			int fives = remainingChange / fiveDollars;
 			remainingChange = remainingChange - (fives * fiveDollars);
@@ -54,6 +59,10 @@ public class CashRegister {
 			
 			int penniesA = remainingChange / pennies;
 			remainingChange = remainingChange -(penniesA * pennies);
+			
+			if (twenties > 0) {
+				System.out.println(twenties + " Twenties ");
+			}
 			
 			if (tens > 0) {
 				System.out.println( tens + " Tens " );
@@ -76,10 +85,8 @@ public class CashRegister {
 			if (penniesA > 0) {
 				System.out.println( penniesA + " Pennies ");
 			}
-			
-		}	
+				
 		sc.close();
 	}
-
 }
 
